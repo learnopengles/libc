@@ -115,10 +115,16 @@ case "$TARGET" in
 
   i386-apple-ios)
     python ./ci/ios/deploy_and_run_ios_binary_on_ios_simulator.py $CARGO_TARGET_DIR/$TARGET/debug/libc-test
+    cat ~/Library/Logs/CoreSimulator/CoreSimulator.log
+    xcrun simctl list
+    find ~/Library/Logs/CoreSimulator/ -name "system.log" | xargs cat
     ;;
 
   x86_64-apple-ios)
     python ./ci/ios/deploy_and_run_ios_binary_on_ios_simulator.py $CARGO_TARGET_DIR/$TARGET/debug/libc-test 
+    cat ~/Library/Logs/CoreSimulator/CoreSimulator.log
+    xcrun simctl list
+    find ~/Library/Logs/CoreSimulator/ -name "system.log" | xargs cat
     ;;
 
   arm-unknown-linux-gnueabihf)
